@@ -4,23 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Blogs</title>
-    <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet"> -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
     
 </head>
-<body>
-        <div>
-            <h1>Blogs Page</h1>
+<body class="bg-blue-200">
+        <div class="flex flex-col jutify-center items-center h-20 bg-blue-400 mb-8">
+            <h1 class="text-4xl p-5 font-bold">BLOGS PAGE</h1>
         </div>
-        <div id="blog-titles"></div>
+        <div id="blog-titles" class="flex flex-col justify-center items-center"></div>
     
-        <div id="blog-form">
-            <h1>Create a new blog</h1>
-            <br>
-            Title: <input id="new-title" type="text" placeholder="enter title">
-            <br>
-            Content <input id="new-content" type="textarea" placeholder="enter content">
-            <button id="create-blog">Create Blog</button>
+        <div id="blog-form" class="flex flex-col bg-white p-6 rounded-lg shadow-lg max-w-lg mx-auto mt-8 mb-8">
+            <h1 class="text-2xl font-semibold text-center mb-4">Create a New Blog</h1>
+            
+            <label for="new-title" class="font-medium text-gray-700">Title:</label>
+            <input id="new-title" type="text" placeholder="Enter title" class="p-3 mb-4 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            
+            <label for="new-content" class="font-medium text-gray-700">Content:</label>
+            <textarea id="new-content" placeholder="Enter content" rows="4" class="p-3 mb-6 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
+            
+            <button id="create-blog" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">Create Blog</button>
         </div>
+        
     
     <script src="../back-end/script.js"></script>
 </body>
