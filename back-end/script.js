@@ -15,15 +15,29 @@ savedblogs.forEach((blog, index) => {
 
     const blogtitle = document.createElement('div');
     blogtitle.style.fontWeight = "bold";
-    blogtitle.textContent = `${blog.title} (Views: ${blog.views})`;
+    blogtitle.style.textAlign = "center";
+    blogtitle.style.fontSize = '20px';
+    blogtitle.style.color = '#333';
+    blogtitle.style.marginBottom = '15px';
+    blogtitle.textContent = `${blog.title} | Views: ${blog.views}`;
 
     const viewbtn = document.createElement('button');
     viewbtn.textContent = 'View Blog';
     viewbtn.style.margin = "5px";
+    viewbtn.style.backgroundColor = "green";
+    viewbtn.style.color = "white";
+    viewbtn.style.border = "none";
+    viewbtn.style.padding = "5px";
+    viewbtn.style.borderRadius = '6px';
 
     const backbtn = document.createElement('button');
     backbtn.textContent = 'Back';
     backbtn.style.display = 'none';
+    backbtn.style.backgroundColor = "black";
+    backbtn.style.color = "white";
+    backbtn.style.border = "none";
+    backbtn.style.padding = "5px";
+    backbtn.style.borderRadius = '6px';
 
     const delete_blog = document.createElement('button');
     delete_blog.textContent = 'Delete Blog';
@@ -32,6 +46,7 @@ savedblogs.forEach((blog, index) => {
     delete_blog.style.color = "white";
     delete_blog.style.border = "none";
     delete_blog.style.padding = "5px";
+    delete_blog.style.borderRadius = '6px';
 
     const update_blog = document.createElement('button');
     update_blog.textContent = 'Update Blog';
@@ -40,32 +55,54 @@ savedblogs.forEach((blog, index) => {
     update_blog.style.color = "white";
     update_blog.style.border = "none";
     update_blog.style.padding = "5px";
+    update_blog.style.borderRadius = '6px';
 
     const updateSection = document.createElement('div');
     updateSection.style.display = 'none';
-    updateSection.style.marginTop = '5px';
-    updateSection.style.padding = '5px';
-    updateSection.style.border = '1px solid gray';
-    updateSection.style.backgroundColor = '#f0f0f0';
+    updateSection.style.marginTop = '20px';
+    updateSection.style.padding = '20px';
+    updateSection.style.border = '1px solid #ddd';
+    updateSection.style.backgroundColor = '#f9f9f9';
+    updateSection.style.borderRadius = '8px';
 
     const updateTitleInput = document.createElement('input');
     updateTitleInput.type = 'text';
     updateTitleInput.value = blog.title;
     updateTitleInput.style.display = 'block';
-    updateTitleInput.style.marginBottom = '5px';
+    updateTitleInput.style.width = '100%'; 
+    updateTitleInput.style.padding = '10px'; 
+    updateTitleInput.style.marginBottom = '15px'; 
+    updateTitleInput.style.border = '1px solid #ccc'; 
+    updateTitleInput.style.borderRadius = '8px';
+    updateTitleInput.style.fontSize = '16px'; 
+    updateTitleInput.style.boxSizing = 'border-box';
 
     const updateContentInput = document.createElement('textarea');
     updateContentInput.value = blog.content;
-    updateContentInput.rows = 3;
+    updateContentInput.rows = 5;
     updateContentInput.style.display = 'block';
-    updateContentInput.style.marginBottom = '5px';
+    updateContentInput.style.width = '100%'; 
+    updateContentInput.style.padding = '10px';
+    updateContentInput.style.marginBottom = '15px'; 
+    updateContentInput.style.border = '1px solid #ccc'; 
+    updateContentInput.style.borderRadius = '8px';
+    updateContentInput.style.fontSize = '16px'; 
+    updateContentInput.style.boxSizing = 'border-box'; 
 
     const saveUpdateBtn = document.createElement('button');
     saveUpdateBtn.textContent = 'Save';
     saveUpdateBtn.style.marginRight = '5px';
+    saveUpdateBtn.style.backgroundColor = "green";
+    saveUpdateBtn.style.color = "white";
+    saveUpdateBtn.style.border = "none";
+    saveUpdateBtn.style.padding = "5px";
 
     const cancelUpdateBtn = document.createElement('button');
     cancelUpdateBtn.textContent = 'Cancel';
+    cancelUpdateBtn.style.backgroundColor = "red";
+    cancelUpdateBtn.style.color = "white";
+    cancelUpdateBtn.style.border = "none";
+    cancelUpdateBtn.style.padding = "5px";
 
     updateSection.appendChild(updateTitleInput);
     updateSection.appendChild(updateContentInput);
@@ -73,12 +110,16 @@ savedblogs.forEach((blog, index) => {
     updateSection.appendChild(cancelUpdateBtn);
 
     const view_content = document.createElement('div');
-    view_content.style.display = 'none';
-    view_content.style.marginTop = '5px';
-    view_content.style.padding = '5px';
-    view_content.style.border = '1px solid gray';
-    view_content.style.backgroundColor = '#f9f9f9';
+    view_content.style.display = 'none'; // Initially hidden
+    view_content.style.marginTop = '15px';
+    view_content.style.padding = '15px';
+    view_content.style.border = '1px solid #d1d5db'; // Light gray border
+    view_content.style.backgroundColor = '#f3f4f6'; // Light gray background
+    view_content.style.borderRadius = '8px'; // Rounded corners
+    view_content.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)'; // Subtle shadow effect
+    view_content.style.fontSize = '16px'; // Adjust font size for readability
     view_content.textContent = blog.content;
+
 
     viewbtn.addEventListener('click', () => {
         blog.views += 1;
