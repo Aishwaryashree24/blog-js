@@ -23,7 +23,7 @@ savedblogs.forEach((blog, index) => {
 
     const backbtn = document.createElement('button');
     backbtn.textContent = 'Back';
-    backbtn.style.display = 'none'; // Initially hidden
+    backbtn.style.display = 'none';
 
     const delete_blog = document.createElement('button');
     delete_blog.textContent = 'Delete Blog';
@@ -41,7 +41,6 @@ savedblogs.forEach((blog, index) => {
     update_blog.style.border = "none";
     update_blog.style.padding = "5px";
 
-    // Create update section (initially hidden)
     const updateSection = document.createElement('div');
     updateSection.style.display = 'none';
     updateSection.style.marginTop = '5px';
@@ -68,7 +67,6 @@ savedblogs.forEach((blog, index) => {
     const cancelUpdateBtn = document.createElement('button');
     cancelUpdateBtn.textContent = 'Cancel';
 
-    // Append inputs and buttons to update section
     updateSection.appendChild(updateTitleInput);
     updateSection.appendChild(updateContentInput);
     updateSection.appendChild(saveUpdateBtn);
@@ -82,52 +80,51 @@ savedblogs.forEach((blog, index) => {
     view_content.style.backgroundColor = '#f9f9f9';
     view_content.textContent = blog.content;
 
-    // Click event for View button
     viewbtn.addEventListener('click', () => {
-        blog.views += 1; // Increment view count
-        blogtitle.textContent = `${blog.title} (Views: ${blog.views})`; // Update UI dynamically
-        localStorage.setItem('blogs', JSON.stringify(savedblogs)); // Save updated views
+        blog.views += 1;
+        blogtitle.textContent = `${blog.title} (Views: ${blog.views})`; 
+        localStorage.setItem('blogs', JSON.stringify(savedblogs)); 
 
         view_content.style.display = 'block';
         viewbtn.style.display = 'none';
-        backbtn.style.display = 'inline'; // Show back button
+        backbtn.style.display = 'inline'; 
     });
 
-    // Click event for Back button
     backbtn.addEventListener('click', () => {
         view_content.style.display = 'none';
         viewbtn.style.display = 'inline';
         backbtn.style.display = 'none';
     });
 
-    // Click event for Delete Blog button
     delete_blog.addEventListener('click', () => {
-        const updatedBlogs = savedblogs.filter(b => b.id !== blog.id);
-        localStorage.setItem('blogs', JSON.stringify(updatedBlogs));
-
-        element.removeChild(blogContainer); // Remove from UI without refreshing
+        const indexToDelete = savedblogs.findIndex(b => b.id === blog.id);
+    
+        if (indexToDelete !== -1) {
+            savedblogs.splice(indexToDelete, 1);
+            localStorage.setItem('blogs', JSON.stringify(savedblogs));
+    
+            blogContainer.remove();
+        }
     });
+    
 
-    // Click event for Update Blog button
     update_blog.addEventListener('click', () => {
-        updateSection.style.display = 'block'; // Show the update section
+        updateSection.style.display = 'block'; 
     });
 
-    // Click event for Save Update button
     saveUpdateBtn.addEventListener('click', () => {
         blog.title = updateTitleInput.value.trim();
         blog.content = updateContentInput.value.trim();
 
         localStorage.setItem('blogs', JSON.stringify(savedblogs));
 
-        blogtitle.textContent = `${blog.title} (Views: ${blog.views})`; // Update title in UI
-        view_content.textContent = blog.content; // Update content in UI
-        updateSection.style.display = 'none'; // Hide update section after saving
+        blogtitle.textContent = `${blog.title} (Views: ${blog.views})`;
+        view_content.textContent = blog.content;
+        updateSection.style.display = 'none';
     });
 
-    // Click event for Cancel Update button
     cancelUpdateBtn.addEventListener('click', () => {
-        updateSection.style.display = 'none'; // Hide update section
+        updateSection.style.display = 'none';
     });
 
     blogContainer.appendChild(blogtitle);
@@ -136,12 +133,12 @@ savedblogs.forEach((blog, index) => {
     blogContainer.appendChild(update_blog);
     blogContainer.appendChild(delete_blog);
     blogContainer.appendChild(view_content);
-    blogContainer.appendChild(updateSection); // Add the update section
+    blogContainer.appendChild(updateSection);
 
     element.appendChild(blogContainer);
 });
 
-// Create new blog functionality
+
 document.getElementById('create-blog').addEventListener('click', () => {
     const new_title = document.getElementById('new-title').value.trim();
     const new_content = document.getElementById('new-content').value.trim();
@@ -155,5 +152,5 @@ document.getElementById('create-blog').addEventListener('click', () => {
     blogs.push(new_blog);
     localStorage.setItem('blogs', JSON.stringify(blogs));
 
-    location.reload(); // Refresh page to show new blog
+    location.reload();
 });
