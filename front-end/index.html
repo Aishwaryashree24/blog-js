@@ -4,13 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Blogs</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
-    <script src="/back-end/script.js"></script>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet"> -->
+    
 </head>
 <body>
-    <div class="flex justify-center items-center w-full" style="background-color: darkkhaki;">
-        <h1 class="text-4xl font-bold py-3">Blogs Page</h1>
+    <div>
+        <h1>Blogs Page</h1>
     </div>
-    <div id="blog-list" class="space-y-4"></div>
+    <div id="blog-titles"></div>
+
+    <div id="blog-form">
+        <h1>Create a new blog</h1>
+        <br>
+        Title: <input id="new-title" type="text" placeholder="enter title">
+        <br>
+        Content <input id="new-content" type="textarea" placeholder="enter content">
+    </div>
+    <button id="create-blog">Create Blog</button>
+    
+    <script src="../back-end/script.js"></script>
 </body>
 </html>
