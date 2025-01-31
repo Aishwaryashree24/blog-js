@@ -110,14 +110,14 @@ savedblogs.forEach((blog, index) => {
     updateSection.appendChild(cancelUpdateBtn);
 
     const view_content = document.createElement('div');
-    view_content.style.display = 'none'; // Initially hidden
+    view_content.style.display = 'none'; 
     view_content.style.marginTop = '15px';
     view_content.style.padding = '15px';
-    view_content.style.border = '1px solid #d1d5db'; // Light gray border
-    view_content.style.backgroundColor = '#f3f4f6'; // Light gray background
-    view_content.style.borderRadius = '8px'; // Rounded corners
-    view_content.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)'; // Subtle shadow effect
-    view_content.style.fontSize = '16px'; // Adjust font size for readability
+    view_content.style.border = '1px solid #d1d5db'; 
+    view_content.style.backgroundColor = '#f3f4f6';
+    view_content.style.borderRadius = '8px'; 
+    view_content.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)'; 
+    view_content.style.fontSize = '16px';
     view_content.textContent = blog.content;
 
 
